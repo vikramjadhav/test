@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/!svn/ver/158088/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv
+END
+wrv.manpage.txt
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/!svn/ver/136232/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/wrv.manpage.txt
+END
+winwrv.sln
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/winwrv.sln
+END
+iotest.c
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/!svn/ver/151098/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/iotest.c
+END
+ioutils.c
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/ioutils.c
+END
+iomethods.c
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svnroot/!svn/ver/158088/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/iomethods.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/!svn/ver/151410/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/Makefile
+END
+iotest.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/iotest.h
+END
+winwrv.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/winwrv.vcproj
+END

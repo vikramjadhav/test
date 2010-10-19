@@ -1,0 +1,68 @@
+ACLs are made up of zero or more ACEs (Access Control Entries)
+
+Each ACE has following components :- 
+
+1. Type :-
+
+	four types :-
+	1. ALLOW
+	2. DENY
+	3. AUDIT
+	4. ALARM
+
+	zfs does not supports AUDIT and ALARM.
+
+2. Access mask bits :-
+
+	defines accesses that are controlled by ACE.
+	
+	two categories : -
+	1. bits controlling access to the file : - write_data, read_data, write_attributes, read_attributes.
+	2. bits controlling mgmnt of the file : - write_acl, write_owner.
+
+
+3. Flags : -
+
+	three categories : -
+	1. bits defining  inheritence properties of ACE.
+	like file_inherit, directory_inherit, inherit_only, no_propagate_inherit.
+	2. bits defining whether ACE applies to user or group.
+	like identifier_group.
+	3. bits req. for AUDIT and ALARM type of ACEs -> not supported by zfs.
+
+There are some user space utilities available for the ACLs in like setfacl and getfacl
+
+but those are specifically used for POSIX-draft ACLs.
+
+On Solaris, chmod and ls cmd utilities have been modified which gives ability to manipulate ZFS/NFSv4 ACLs.
+
+
+ZFS file system uses pure ACL model, which is compliant with the NFSv4 ACL model.
+
+It means that every file has an acl.
+
+All access control decisions are governed by a file's acl.
+
+
+All files still have permission bits but they are contructed by analyzing the file's acl.
+
+
+ZFS port to FreeBSD makes use of the modifications to the setfacl and getfacl to handle NFSv4 acl
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

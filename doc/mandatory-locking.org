@@ -1,0 +1,46 @@
+
+1. Mandatory locks can only be applied via fcntl()/lockf() locking interface.
+
+2. If process has locked a region of a file with mand READ lock , then
+other processes are permitted to read from that region.
+
+If attempt to write is made it will block until the lock is released.
+
+unless the process has opened the file with the O_NONBLOCK flag.
+
+syscall will return with EAGAIN error.
+
+3. If process has locked a region of a file with mand WRITE lock, 
+all attempts to read or write to that region block until lock released.
+
+unless the process has opened the file with the O_NONBLOCK flag.
+
+syscall will return with EAGAIN error.
+
+4. Calls to open() with O_TRUNC or to creat() , on existing file that has any mand locks owned by
+other processes fail with the EAGAIN error status.
+
+5. Attempts to apply a mand lock to a file which is memory mapped and shared (via mmap() with MAP_SHARED)
+will be rejected with the error status EAGAIN.
+
+6. Attempts to create a shared memory map of a file (via mmap() with MAP_SHARED)
+that has any mandatory locks in effect will be rejected with error status EAGAIN.
+
+System calls affected : -
+
+which modify the file's content not just inode.
+
+1. read(), write(), readv(), writev(), open(), creat(), mmap(), truncate(), ftruncate().
+
+affected region is usually defined as stretching from current pos for the total no. of bytes read or written.
+
+
+
+How to mark a file for mandatory locking ?
+
+set the group-id bit in its file mode but remove the group-execute bit.
+
+grp-id bit is automatically cleared by the kernel when a setgid file is written to.
+
+
+locks are bound to processes and not file descriptors.

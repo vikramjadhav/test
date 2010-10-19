@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/!svn/ver/151098/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows
+END
+errormsg.c
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows/errormsg.c
+END
+aclops.c
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows/aclops.c
+END
+fileops.c
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows/fileops.c
+END
+gettimeofday.c
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows/gettimeofday.c
+END
+wincompat_utils.c
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svnroot/!svn/ver/151098/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows/wincompat_utils.c
+END
+getopt.c
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows/getopt.c
+END
+wininclude.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svnroot/!svn/ver/150612/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows/wininclude.h
+END
+getopt.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows/getopt.h
+END
+win32.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows/win32.h
+END
+signal.c
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svnroot/!svn/ver/150507/branches/releases/USM_trunk/omneon/usm/test/automation/utils/wrv/windows/signal.c
+END

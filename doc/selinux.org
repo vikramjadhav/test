@@ -1,0 +1,16 @@
+SELinux : -
+
+1. It is a feature that provides a mechanism for supporting access control security policies, incl. MAC,
+through use of Linux Security Modules ( LSM )
+
+2. It has no concept of root super-user.
+
+
+ext2/3/4 reiserfs xfs all handle SELinux using extended attributes(xttr)
+security.h contains the relevant operations declarations.
+
+Reference urls :-
+
+1. wikipedia
+2. http://wiki.debian.org/SELinux/Setup
+

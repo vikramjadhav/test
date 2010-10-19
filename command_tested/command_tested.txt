@@ -1,0 +1,170 @@
+* ZPOOL COMMANDS *
+
+Command Name           Usage                    Option               Fedora                 Ubuntu
+1. zpool history    zpool history               -i                    YES                    YES
+		       [-il] [pool] ...
+
+						-l                    YES                    YES
+
+2. zpool list       zpool list [-H]             -H                    YES                    YES
+		       [-o props[,...]]
+		       [pool] ...
+       	                                        -o                    YES                    YES
+
+3. zpool get        zpool get "all" |                                 YES                    YES
+		    property[,...] pool ...
+
+4. zpool status     zpool status [-xv]          -x                    YES                    YES 
+			[pool] ...
+						-v                    YES                    YES
+
+5. zpool set        zpool set                                         YES                    YES
+		    property=value pool
+
+6. zpool upgrade    zpool upgrade                                     YES                    YES
+
+7. zpool upgrade    zpool upgrade -v            -v                    YES                    YES
+
+8. zpool clear      zpool clear pool                                  YES                    YES
+			[device] ...
+
+9. zpool attach     zpool attach [-f] pool                            YES                    YES
+			 device new_device
+
+10. zpool destroy   zpool destroy [-f] pool                           YES                    YES
+
+11. zpool detach    zpool detach pool device                          YES                    YES
+
+12. zpool offline   zpool offline [-t]                                YES                    YES
+			pool device ...
+
+13. zpool online    zpool online pool                                 YES                    YES 
+			device ...
+
+14. zpool remove    zpool remove pool                 
+			device ...
+
+15. zpool replace   zpool replace [-f] pool                           YES                    YES 
+			device [new_device]
+
+16. zpool export    zpool export [-f] pool ...                        YES                    YES
+
+17. zpool import    zpool import [-d dir |            -D              YES                    YES
+			 -c cachefile] [-D]
+                                                      -d              YES                    YES
+
+18. zpool import    zpool import [-o mntopts]                         YES                    YES
+			 [ -o property=value] 
+			... [-d dir | -c cachefile]
+			 [-D] [-f] [-R root] -a
+
+19. zpool import    zpool import [-o mntopts]                         YES                    YES
+			[ -o property=value] 
+			... [-d dir | -c cachefile]
+			 [-D] [-f] [-R root] pool |
+			 id [newpool]
+
+20. zpool iostat    iostat [-v] [pool]                                YES                    YES
+			... [interval [count]]
+
+21. zpool add 	     zpool add [-fn]                                                          
+			pool vdev ...
+
+
+-----------------------------------------------------------------------------------------------------
+
+* ZFS COMMANDS *
+
+
+1. zfs create      zfs create [-p]                           Some of the Properties        SAME
+			[-o property=value]		       are not set							                 .... filesystem                            atime
+							       devices
+							       exec
+							       version
+
+2. zfs create     zfs create [-ps]                  -b                YES                   YES
+			[-b blocksize] 
+			[-o property=value]         -o                YES                   YES
+			 ... -V size volume
+						    -V                YES                   YES
+
+3. zfs destroy    zfs destroy [-rRf]                -r                YES                   YES
+			filesystem|volume
+						    -R                YES                   YES
+
+4. zfs destroy    zfs destroy [-rRd]                -r                YES                   YES 
+			snapshot
+						    -R                YES                   YES
+                                                    
+						    -d                YES                   YES
+						
+5. zfs snapshot   zfs snapshot [-r]                                   YES                   YES
+		  [-o property=value] 
+		  ... filesystem@snapname|
+		  volume@snapname 		
+ 
+6. zfs clone      zfs clone [-p]                                      YES                   YES
+	          [-o property=value] 
+	          ... snapshot filesystem|
+			volume
+
+7. zfs rollback   zfs rollback [-rRf] snapshot                        NO                    NO
+                                                                      internal error: Unknown error 524
+								      Aborted (core dumped)
+
+8. zfs rename     zfs rename -r snapshot snapshot                     YES                   YES
+ 
+
+9. zfs rename     zfs rename filesystem|                              YES                   YES
+			volume|snapshot	                              Problem with renaming volume
+      			 filesystem|				      Says volume busy.
+			volume|snapshot
+
+10. zfs list      zfs list [-rH][-d max]              -d              YES                   YES	
+			[-o property[,...]] 
+			[-t type[,...]]               -o              YES                   YES
+			 [-s property] ...
+            		[-S property] ...             -t              YES	            YES
+		[filesystem|volume|snapshot] ...     
+						      -r              YES                   YES
+
+11. zfs set       zfs set property=value                              YES                   YES
+		filesystem|volume|snapshot ...
+
+12. zfs get      zfs get [-rHp] [-d max]              all             YES                   YES
+		 [-o field[,...]] [-s source[,...]]
+            	<"all" | property[,...]> 
+		[filesystem|volume|snapshot] ...
+
+13. zfs inherit   zfs inherit [-r] property                           YES                   YES 
+			filesystem|volume|snapshot ...
+
+14. zfs upgrade   zfs upgrade [-v]                                    YES                   YES
+
+15. zfs userspace   zfs userspace [-niHp]                           NOT SUPPORTED  
+			[-o field[,...]] [-sS field] ...	    internal error: /usr/lib/zfs/pyzfs.py not found
+								    falling back on built-in implementation, 
+								    some features will not work
+							  	    cannot open 'userspace': dataset does not exist
+
+16. zsf groupspace   zfs groupspace [-niHp]                         NOT SUPPORTED
+		    [-o field[,...]] [-sS field] ...		    internal error: /usr/lib/zfs/pyzfs.py not found
+								    falling back on built-in implementation,
+								    some features will not work
+								    cannot open 'groupspace': dataset does not exist
+
+17. zfs mount       zfs mount                                         YES                   YES
+
+18. zfs mount       zfs mount [-vO] [-o options]                      YES                   YES 
+			-a | filesystem
+
+19. zfs umount       zfs unmount [-f] -a |                            YES                   YES
+			filesystem|mountpoint
+
+20. 
+
+            	    [-t type [,...]] filesystem|snapshot
+
+
+                        [-t type [,...]] filesystem|snapshot
+

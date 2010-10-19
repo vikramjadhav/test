@@ -1,0 +1,34 @@
+## This is the xanadu property file
+## Valid colors are any "browser safe color" or a hex value
+##############################################################################
+#antilias: Should we antialias? (Yes/No)
+#bgc:  Background color 
+#rgc:  RangeGridLine color 
+#dgc:  DomainGridLine color 
+#pgc:  Plot Background color
+#showLegend: Show legends? (Yes/No)
+#showShape: Show shapes(dots)? (Yes/No)
+#backgroundAlpha: Background alpha transparency. Any float value between 0 & 1
+#foregroundAlpha: Foreground alpha transparency. Any float value between 0 & 1
+#Orientation: Plot orientation (horizontal/vertical)
+#displayHeader: Display Xanadu headers? (On/Off)
+##############################################################################
+
+antiAlias       = Yes
+bgc             = ffe4c4
+rgc             = lightgrey
+dgc             = lightgrey
+pgc             = white
+showLegend      = Yes
+showShape       = No
+backgroundAlpha = 1.0
+foregroundAlpha = 0.8
+orientation     = Horizontal
+displayHeader   = On
+customize       = Xanadu Customize Chart
+detail          = Xanadu
+merge           = Xanadu Merge Charts
+advanced        = Xanadu
+xmlview         = Xanadu
+error           = Xanadu Error Page
+

@@ -1,0 +1,17 @@
+#!/bin/ksh
+stat=$1
+
+echo "Killing statistics gathering: $stat"
+
+# Determine the pid of the collecting process
+ps -ef | egrep "collect_${stat}|${stat}" | grep -v grep | nawk '{print $2}' | while read pid
+do
+        # Kill child processes off first
+        pkill -P $pid
+done
+
+# 5 second sleep to provide time for post-processing
+sleep 5
+
+# Kill main process
+kill -9 $pid 

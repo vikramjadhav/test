@@ -1,0 +1,7 @@
+
+1. fcntl() sys call is used for record locking purpose. 
+
+makes use of struct flock and in its impl. in -kernel converts it to posix lock struct file_lock
+
+calls lock() method of file_operations struct
+

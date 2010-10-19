@@ -1,0 +1,5 @@
+#!/usr/bin/csh
+
+set HOME_DIR=`dirname $0`
+
+perl -w $HOME_DIR/xanadu.pl $*

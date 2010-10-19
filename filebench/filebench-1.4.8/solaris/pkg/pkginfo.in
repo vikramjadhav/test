@@ -1,0 +1,13 @@
+ARCH=i386
+BASEDIR=/opt
+ROOTDIR=/
+CATEGORY=application
+CLASSES=none
+MAXINST=1000
+DESC=FileBench
+EMAIL=perf-discuss@opensolaris.org
+NAME=FileBench
+PKG=filebench
+VENDOR=filebench.org
+PSTAMP=XXXXX
+VERSION=1.4.8
