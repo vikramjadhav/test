@@ -1,0 +1,23 @@
+
+Quota allows one to specify limits for two aspects of disk storage:
+
+1. no of inodes a user or a group of users may possess
+2. no.of disk blocks that may be allocated to a user or a group of users.
+
+handled per user, per filesystem basis.
+
+
+Quota code flow in zfs : - ( zfs set userquota, groupquota )
+
+In zfs_main.c function -> zfs_do_set -> zfs_for_each which has a second last para as callback function -> set_callback
+
+-> zfs_prop_set which invokes the zfs_ioctl with ZFS_IOC_SET_PROP which calls the zfs_ioc_set_prop in the kernel
+
+
+which calls zfs_set_prop_nvlist this function inside
+
+which checks at the middle abt the zfs property of userquota and that code is commented.
+
+
+
+

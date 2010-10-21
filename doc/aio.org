@@ -1,0 +1,61 @@
+
+1. in file_operations there are vops to be implemented
+
+	1) aio_read
+	2) aio_write
+	3) aio_fsync
+
+
+aio_read : - (struct kiocb *iocb, const struct iovec *iov,
+                unsigned long nr_segs, loff_t pos)
+
+aio_write : - (struct kiocb *iocb, const struct iovec *iov,
+                unsigned long nr_segs, loff_t pos)
+
+They initiate the read or write operation which may or may not complete by the 
+time they return.
+
+kiocb stands for kernel I/O control blocks
+
+
+Thinks to take into account
+
+1. pos is passed by value ( as async ops never change file pos ).
+2. kernel can on occasion create synchronous iocbs they are async ios that must be executed synchronously.
+
+
+System call interfaces behaviour : -
+
+A synchronous write operation does not return until the written data is -> atleast stored in the kernels buffer cache.
+
+A synchronous read operation does not return until the read data is stored in the user-space buffer.
+i
+Their async counter parts may only be queued for later.
+
+
+Synchronized/Blocking  operation is more restrictive and safer than merely synchronous operation.
+
+
+A synchronized write flushes the data to disk, ensuring that the on-disk data is always in sync with the corr kernel buffers. O_SYNC
+
+A synchronized read operation always returns the most up-to-date copy of data, from the disk.
+
+Read operations are always synchronized, as reading stale data is of no use.
+
+
+Asynchronous read operation return as soon as the request is queued, but when the read operation executes the data returned is up-to-date.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
