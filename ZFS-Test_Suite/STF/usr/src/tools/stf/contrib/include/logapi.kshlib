@@ -117,6 +117,7 @@ function log_neg_expect
 	done
 
 	"$@" 2>$logfile
+	echo "in log_neg_expect arg is : $@"
 	typeset status=$?
 	out="$CAT $logfile"
 
@@ -176,10 +177,10 @@ function log_pos
 	typeset out=""
 	typeset logfile="/tmp/log.$$"
 
-	while [[ -e $logfile ]]; do
-		logfile="$logfile.$$"
-	done
-
+#	while [[ -e $logfile ]]; do
+#		logfile="$logfile"
+#	done
+	echo "args to log_pos : $@"
 	"$@" 2>$logfile
 	typeset status=$?
 	chmod 0777 $logfile

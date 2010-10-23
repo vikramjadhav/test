@@ -1917,6 +1917,7 @@ function add_group #<group_name>
 	while true; do
 		$GROUPADD -g $gid $group > /dev/null 2>&1
 		typeset -i ret=$?
+		echo "ret = $ret "
 		case $ret in
 			0) return 0 ;;
 			# The gid is not  unique
@@ -1940,6 +1941,7 @@ function del_group #<group_name>
 
 	$GROUPMOD -n $grp $grp > /dev/null 2>&1
 	typeset -i ret=$?
+	echo "ret = $ret"
 	case $ret in
 		# Group does not exist.
 		6) return 0 ;;

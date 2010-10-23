@@ -4,4 +4,5 @@
 4. aio-stress
 5. fstest
 7. LTP
+8. locks -> checks for advisory locking
 
