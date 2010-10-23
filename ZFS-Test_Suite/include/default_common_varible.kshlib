@@ -3,6 +3,7 @@
 #
 
 FILE_WRITE="file_write"
+FILE_TRUNC="file_trunc"
 
 # Default to compression ON
 COMPRESSION_PROP=on

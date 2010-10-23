@@ -1,3 +1,4 @@
+#!/usr/bin/ksh -p
 #
 # CDDL HEADER START
 #
@@ -20,20 +21,28 @@
 #
 
 #
-# Copyright 2007 Sun Microsystems, Inc.  All rights reserved.
+# Copyright 2008 Sun Microsystems, Inc.  All rights reserved.
 # Use is subject to license terms.
 #
-# ident	"@(#)stf.kshlib	1.4	07/04/12 SMI"
+# ident	"@(#)cachefile.kshlib	1.1	08/02/29 SMI"
 #
 
-#
-# This file is for korn shell functionality only.
-# Any functionality that is compatible with bourne shell
-# should be put in stf.shlib so it can be used by sh scripts as well.
-#
 
-. ${STF_TOOLS}/include/stf.shlib
+#
+# A function to determine if a given pool name has an entry in cachefile
+# returns 1 if the pool is not in the cache, 0 otherwise.
+function pool_in_cache {
 
-# do this to use the array: ${STF_RESULT_NAMES[$result]}
-set -A STF_RESULT_NAMES "PASS" "FAIL" "UNRESOLVED" "NOTINUSE" "UNSUPPORTED" \
-    "UNTESTED" "UNINITIATED" "NORESULT" "WARNING" "TIMED_OUT" "OTHER"
+	# checking for the pool name in the strings output of
+	# the given cachefile, default is /etc/zfs/zpool.cache
+	typeset cachefile=${2:-$CPATH}
+
+	RESULT=$($STRINGS $cachefile | $GREP -w $1)
+	if [ -z "$RESULT" ]
+	then
+		echo "pool is not in the cache"
+		return 1
+	fi
+	echo "pool is in the cache"
+	return 0
+}

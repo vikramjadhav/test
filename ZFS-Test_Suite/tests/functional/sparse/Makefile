@@ -23,17 +23,22 @@
 # Copyright 2007 Sun Microsystems, Inc.  All rights reserved.
 # Use is subject to license terms.
 #
-# ident	"@(#)stf.kshlib	1.4	07/04/12 SMI"
+# ident	"@(#)Makefile	1.2	07/01/09 SMI"
 #
 
-#
-# This file is for korn shell functionality only.
-# Any functionality that is compatible with bourne shell
-# should be put in stf.shlib so it can be used by sh scripts as well.
-#
+STF_ROOT_CONFIGURE=
+STF_USER_CONFIGURE=
 
-. ${STF_TOOLS}/include/stf.shlib
+STF_ROOT_SETUP=setup
+STF_USER_SETUP=
 
-# do this to use the array: ${STF_RESULT_NAMES[$result]}
-set -A STF_RESULT_NAMES "PASS" "FAIL" "UNRESOLVED" "NOTINUSE" "UNSUPPORTED" \
-    "UNTESTED" "UNINITIATED" "NORESULT" "WARNING" "TIMED_OUT" "OTHER"
+STF_ROOT_CLEANUP=cleanup
+STF_USER_CLEANUP=
+
+STF_ROOT_TESTCASES=sparse_001_pos
+STF_USER_TESTCASES=
+
+STF_ENVFILES=sparse.cfg
+STF_DONTBUILDMODES=true
+
+include ${STF_TOOLS}/Makefiles/Makefile.master
