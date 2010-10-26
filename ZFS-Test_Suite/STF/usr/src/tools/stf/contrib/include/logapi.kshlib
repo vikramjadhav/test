@@ -115,9 +115,9 @@ function log_neg_expect
 		logfile="$logfile.$$"
 		chmod 0777 $logfile
 	done
-
+	
+	echo "$@"
 	"$@" 2>$logfile
-	echo "in log_neg_expect arg is : $@"
 	typeset status=$?
 	out="$CAT $logfile"
 
@@ -162,7 +162,7 @@ function log_neg_expect
 			_printsuccess "$@" "exited $status"
 		fi
 	fi
-	#_recursive_output $logfile "false"
+	_recursive_output $logfile "false"
 	return $ret
 }
 
@@ -177,9 +177,9 @@ function log_pos
 	typeset out=""
 	typeset logfile="/tmp/log.$$"
 
-#	while [[ -e $logfile ]]; do
-#		logfile="$logfile"
-#	done
+	while [[ -e $logfile ]]; do
+		logfile="$logfile"
+	done
 	echo "args to log_pos : $@"
 	"$@" 2>$logfile
 	typeset status=$?
@@ -203,7 +203,7 @@ function log_pos
 			_printsuccess "$@"
 		fi
 	fi
-	#_recursive_output $logfile "false"
+	_recursive_output $logfile "false"
 	return $status	
 }
 

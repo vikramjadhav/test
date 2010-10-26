@@ -56,7 +56,7 @@
 #
 ################################################################################
 
-verify_runnable "global"
+#verify_runnable "global"
 
 log_assert "Exporting and importing pool with log devices passes."
 log_onexit cleanup
@@ -80,8 +80,10 @@ do
 			#
 			# Nomal export/import operating
 			#
+			log_must $ZFS umount -a
 			log_must $ZPOOL export $TESTPOOL
 			log_must $ZPOOL import -d $VDIR -d $VDIR2 $TESTPOOL
+			log_must $ZFS mount -a
 			log_must display_status $TESTPOOL
 			ldev=$(random_get $LDEV $LDEV2)
 			log_must verify_slog_device \
@@ -90,14 +92,17 @@ do
 			#
 			# Destroy the pool and import again
 			#
+			log_must $ZFS umount -a
 			log_must $ZPOOL destroy $TESTPOOL
 			log_must $ZPOOL import -Df -d $VDIR -d $VDIR2 $TESTPOOL
+			log_must $ZFS mount -a
 			log_must display_status $TESTPOOL
 			ldev=$(random_get $LDEV $LDEV2)
 			log_must verify_slog_device \
 				$TESTPOOL $ldev 'ONLINE' $logtype
-
-			log_must $ZPOOL destroy -f $TESTPOOL
+			
+			log_must $ZFS umount -a
+			log_must $ZPOOL destroy $TESTPOOL
 		done
 	done
 done

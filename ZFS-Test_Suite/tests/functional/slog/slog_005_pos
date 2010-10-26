@@ -63,14 +63,15 @@ for type in "" "mirror" "raidz" "raidz2"
 do
 	for spare in "" "spare"
 	do
-		log_must $ZPOOL create $TESTPOOL $type $VDEV $spare $SDEV \
+		log_must $ZPOOL create $TESTPOOL $type -f $VDEV $spare $SDEV \
 			log mirror $LDEV mirror $LDEV2
 		ldev=$(random_get $LDEV $LDEV2)
 		log_must $ZPOOL detach $TESTPOOL $ldev
 		log_must display_status $TESTPOOL
 		log_mustnot verify_slog_device $TESTPOOL $ldev 'ONLINE' 'mirror'
 
-		log_must $ZPOOL destroy -f $TESTPOOL
+		log_must $ZFS umount -a
+		log_must $ZPOOL destroy $TESTPOOL
 	done
 done
 

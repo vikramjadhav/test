@@ -65,7 +65,7 @@ do
 	do
 		for logtype in "" "mirror"
 		do
-			log_must $ZPOOL create $TESTPOOL $type $VDEV \
+			log_must $ZPOOL create $TESTPOOL $type -f $VDEV \
 				$spare $SDEV log $logtype $LDEV
 
 			ldev=$(random_get $LDEV)
@@ -76,8 +76,8 @@ do
 				$TESTPOOL $ldev 'ONLINE' 'mirror'
 			log_must verify_slog_device \
 				$TESTPOOL $ldev2 'ONLINE' 'mirror'
-
-			log_must $ZPOOL destroy -f $TESTPOOL
+			log_must $ZFS umount -a
+			log_must $ZPOOL destroy $TESTPOOL
 		done
 	done
 done

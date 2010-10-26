@@ -118,9 +118,9 @@ function verify_slog_device
 	while (( i < ${#dev_stat_tab[@]} )); do
 		typeset dev=${dev_stat_tab[$i]}
 		typeset stat=${dev_stat_tab[((i+1))]}
-
 		case $dev in
-			stripe:$device)	
+			stripe:$device)
+				echo " hi"	
 				if [[ "$type" == 'mirror' ]]; then
 					log_note "Unexpected type: mirror"
 					return 1
@@ -134,6 +134,7 @@ function verify_slog_device
 				fi
 				;;
 			mirror:$device)
+				echo "hello"
 				if [[ -z "$type" || $type == 'stripe' ]]; then
 					log_note "Unexpected type: stripe"
 					return 1
