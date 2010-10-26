@@ -1140,8 +1140,8 @@ function destroy_pool #pool
 #	if is_global_zone ; then
 		if poolexists "$pool" ; then
 			
-			umount_pool_filesystem $TESTPOOL
-			
+#			umount_pool_filesystem $TESTPOOL
+			umount_pool_filesystem  $pool
 			mtpt=$(get_prop mountpoint "$pool")
 			log_must $ZPOOL destroy -f $pool
 
