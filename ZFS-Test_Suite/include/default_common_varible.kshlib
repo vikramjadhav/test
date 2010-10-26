@@ -13,9 +13,9 @@ CHECKSUM_PROP=on
 TESTPOOL="tank"
 TESTDIR="/tank/zfs"
 TESTFS="zfs"
-TESTDIR1="/tank1.$$/zfs1.$$"
+TESTDIR1="/tank1/zfs1"
 TESTFS1="zfs1"
-
+TESTPOOL1="tank1"
 
 KEEP="nothing"
 NO_POOLS="nothing"
