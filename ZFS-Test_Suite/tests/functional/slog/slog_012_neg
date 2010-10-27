@@ -53,7 +53,7 @@
 #
 ################################################################################
 
-verify_runnable "global"
+#verify_runnable "global"
 
 log_assert "Pool can survive when one of mirror log device get corrupted."
 log_onexit cleanup
@@ -69,7 +69,7 @@ do
 		#
 		# Create file in pool to trigger writting in slog devices
 		#
-		log_must $DD if=/dev/random of=$mntpnt/testfile.$$ count=100
+		log_must $DD if=/dev/random of=$mntpnt/testfile.$$ count=100 bs=1
 
 		ldev=$(random_get $LDEV)
 		log_must $MKFILE $SIZE $ldev
@@ -78,7 +78,8 @@ do
 		log_must display_status $TESTPOOL
 		log_must verify_slog_device $TESTPOOL $ldev 'UNAVAIL' 'mirror'
 
-		log_must $ZPOOL destroy -f $TESTPOOL
+		log_must $ZFS umount -a #FIXME
+		log_must $ZPOOL destroy $TESTPOOL
 	done
 done
 
