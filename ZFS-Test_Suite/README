@@ -28,7 +28,7 @@ Table of Contents
 		add this commond  bash_profile
 	
 			export STF_SUITE=/home/kqinfo/ZFS-test/ZFS-Test_Suite
-
+			export STF_TOOLS=/home/kqinfo/ZFS-test/ZFS-Test_Suite/STF/usr/src/tools/stf
 	2.2 Configuring	and running
 
 		1.	$]cd ~/ZFS-test/ZFS-Test_Suite/tests/functional/
