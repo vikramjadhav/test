@@ -21,39 +21,20 @@
 #
 
 #
-# Copyright 2009 Sun Microsystems, Inc.  All rights reserved.
+# Copyright 2008 Sun Microsystems, Inc.  All rights reserved.
 # Use is subject to license terms.
 #
-# ident	"@(#)setup.ksh	1.4	09/01/12 SMI"
+# ident	"@(#)cleanup.ksh	1.1	08/02/27 SMI"
 #
-DISK=$@
 
 . $STF_SUITE/include/libtest.kshlib
 . $STF_SUITE/commands.cfg
 . $STF_SUITE/include/default_common_varible.kshlib
-. $STF_SUITE/STF/usr/src/tools/stf/contrib/include/logapi.kshlib
+. $STF_TOOLS/contrib/include/logapi.kshlib
 
-
-
-
-#verify_runnable "global"
-
-#if ! $(is_physical_device $DISKS) ; then
-#	log_unsupported "This directory cannot be run on raw files."
+#verify_runnable "both"
+#if ! fs_prop_exist "refquota" ; then
+#	log_unsupported "refquota is not supported by this release."
 #fi
 
-#if [[ -n $DISK ]]; then
-#        log_note "No spare disks available. Using slices on $DISK"
-#	for i in $SLICE0 $SLICE1 ; do
-#        	log_must set_partition $i "$cyl" $SIZE $DISK
-#		cyl=$(get_endslice $DISK $i)
-#	done
-#        tmp=$DISK"s"$SLICE0
-#else
-#        log_must set_partition $SLICE "" $SIZE $DISK0
-#        log_must set_partition $SLICE "" $SIZE $DISK1
-#	tmp=$DISK0"s"$SLICE
-#fi
-
-default_setup "$DISK"
-
+default_cleanup
