@@ -13,7 +13,7 @@ Few notes on how to use fstest in short steps:
 	It will compile fstest utility which is used by regression tests.
 	# cd /path/to/file/system/you/want/to/test/
 	The test must be run as root user.
-	# prove -r /path/to/fstest/
+	# prove -r /path/to/tests/present/in/fstest
 
 That's all. Enjoy.
 
