@@ -34,5 +34,5 @@
 #. $STF_SUITE/default.cfg
 #DISK=${DISKS%% *}
 
-DISK=$1
-default_container_setup $DISK
+DISK=$@
+default_container_setup "$DISK"

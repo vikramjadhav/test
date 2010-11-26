@@ -69,11 +69,13 @@ typeset -i DATA=0
 
 log_assert "Verify a nested file system can be created/destroyed."
 
-log_must ./$FILE_WRITE -o $OP -f $TESTDIR/$TESTFILE0 -b $BLOCKSZ \
-    -c $NUM_WRITES -d $DATA
+log_must ./$FILE_WRITE -o $OP -f $TESTDIR1/$TESTFILE0 \
+	 -c $NUM_WRITES -d $DATA
+log note "File creation path $TESTDIR1/$TESTFILE0"
+log_note "A nested file system was successfully populated."
 
 log_must $ZFS unmount $TESTDIR
+
 log_note "Verify that a nested file system with a mounted file system "\
     "cannot be destroyed."
 log_mustnot $ZFS destroy  $TESTPOOL/$TESTCTR
-log_pass "A nested file system was successfully populated."
