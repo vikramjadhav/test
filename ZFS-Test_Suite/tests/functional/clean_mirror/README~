@@ -1,0 +1,14 @@
+
+
+In setup.ksh instead of using side primary and side secondary 
+we using Mirror primary as it is /dev/sda /dev/sdb
+
+
+#
+# Given a slice, size and disk, this function 
+# formats the slice to the specified size.
+# Size should be specified with units as per
+# the `format` command requirements eg. 100mb 3gb
+#
+ set_partition ${SIDE_PRIMARY##*s} "" $MIRROR_SIZE $MIRROR_PRIMARY
+ set_partition ${SIDE_SECONDARY##*s} "" $MIRROR_SIZE $MIRROR_SECONDARY
