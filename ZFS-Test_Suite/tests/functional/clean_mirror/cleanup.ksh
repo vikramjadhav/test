@@ -26,8 +26,9 @@
 #
 # ident	"@(#)cleanup.ksh	1.3	07/02/06 SMI"
 #
-
+. $STF_SUITE/commands.cfg
 . $STF_SUITE/include/libtest.kshlib
+. $STF_SUITE/include/default_common_varible.kshlib
 
 verify_runnable "global"
 
@@ -37,10 +38,10 @@ destroy_pool $TESTPOOL
 
 # recreate and destroy a zpool over the disks to restore the partitions to
 # normal
-if [[ -n $SINGLE_DISK ]]; then
-	log_must cleanup_devices $MIRROR_PRIMARY
-else
-	log_must cleanup_devices $MIRROR_PRIMARY $MIRROR_SECONDARY
-fi
+#if [[ -n $SINGLE_DISK ]]; then
+#	log_must cleanup_devices $MIRROR_PRIMARY
+#else
+#	log_must cleanup_devices $MIRROR_PRIMARY $MIRROR_SECONDARY
+#fi
 
 log_pass

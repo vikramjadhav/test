@@ -27,6 +27,7 @@
 # ident	"@(#)clean_mirror_002_pos.ksh	1.2	07/01/09 SMI"
 #
 
+DISKS="$@"
 . $STF_SUITE/commands.cfg
 . $STF_SUITE/include/libtest.kshlib
 . $STF_SUITE/include/default_common_varible.kshlib
