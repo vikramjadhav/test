@@ -21,29 +21,39 @@
 #
 
 #
-# Copyright 2007 Sun Microsystems, Inc.  All rights reserved.
+# Copyright 2009 Sun Microsystems, Inc.  All rights reserved.
 # Use is subject to license terms.
 #
-# ident	"@(#)cleanup.ksh	1.3	07/02/06 SMI"
+# ident	"@(#)setup.ksh	1.5	09/01/13 SMI"
 #
 
+
 DISKS="$@"
+
 . $STF_SUITE/commands.cfg
 . $STF_SUITE/include/libtest.kshlib
+#. $STF_SUITE/default.cfg
 . $STF_SUITE/include/default_common_varible.kshlib
 . ./default.cfg
 
-verify_runnable "global"
 
-$DF -F zfs -h | $GREP "$TESTFS " >/dev/null
-[[ $? == 0 ]] && log_must $ZFS umount -f $TESTDIR
-destroy_pool $TESTPOOL
+#verify_runnable "global"
 
-# recreate and destroy a zpool over the disks to restore the partitions to
-# normal
+#if ! $(is_physical_device $DISKS) ; then
+#	log_unsupported "This directory cannot be run on raw files."
+#fi
+
 if [[ -n $SINGLE_DISK ]]; then
-	log_must cleanup_devices $MIRROR_PRIMARY
+	log_note "Partitioning a single disk ($SINGLE_DISK)"
 else
-	log_must cleanup_devices $MIRROR_PRIMARY $MIRROR_SECONDARY
+	log_note "Partitioning disks ($MIRROR_PRIMARY $MIRROR_SECONDARY)"
 fi
+
+
+
+
+#log_must set_partition ${SIDE_PRIMARY##*s} "" $MIRROR_SIZE $MIRROR_PRIMARY
+#log_must set_partition ${SIDE_SECONDARY##*s} "" $MIRROR_SIZE $MIRROR_SECONDARY
+
+default_mirror_setup $SIDE_PRIMARY $SIDE_SECONDARY
 log_pass

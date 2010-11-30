@@ -28,6 +28,8 @@ Steps to execute script:
 5. cd assertion_004
    $./clean_mirror_004_pos.ksh Secondary_physical_device
 
+6. $cleanup.ksh Primary_physical_device Secondary_physical_device
+
 
 
 
